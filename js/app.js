@@ -46,20 +46,28 @@ Player.prototype.handleInput = function(m) {
     if (m === 'left') {
       this.x = this.x - 100;
     }
-
     if (m === 'right') {
       this.x = this.x + 100;
     }
-
      if (m === 'up') {
       this.y = this.y - 82;
     }
-
      if (m === 'down') {
       this.y = this.y + 82;
     }
+    if (player.y > 383) {
+        player.y = 383;
+    }
+    if (player.y < 1.5) {
+        player.y = 1.5;
+    }
+    if (player.x > 402.5) {
+        player.x = 402.5;
+    }
+    if (player.x < 1.5) {
+        player.x = 1.5;
+    }
 };
-
 
 
 //*************************************************
@@ -70,6 +78,7 @@ Player.prototype.handleInput = function(m) {
 
 var allEnemies = [];
 var player = new Player(202.5, 383, 50);
+
 
 
 // This listens for key presses and sends the keys to your
