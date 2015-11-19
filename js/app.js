@@ -39,6 +39,17 @@ var Player = function(x, y, speed) {
 };
 
 Player.prototype.update = function(dt) {
+    if (player.y + 131 >= bug1.y + 90 &&
+        player.x + 25 <= bug1.x + 88 &&
+        player.y + 73 <= bug1.y + 135 &&
+        player.x + 76 >= bug1.x + 11) {
+        var reset = prompt('BOOM!!!!!!! BUGS RULE! You lost. Want to play again?');
+            if (reset === "yes") {
+                player.x = 202.5;
+                player.y = 383;
+            }
+        }
+
 };
 
 Player.prototype.render = function() {
@@ -53,10 +64,10 @@ Player.prototype.handleInput = function(m) {
       this.x = this.x + 100;
     }
     if (m === 'up') {
-      this.y = this.y - 82;
+      this.y = this.y - 52;
     }
     if (m === 'down') {
-      this.y = this.y + 82;
+      this.y = this.y + 52;
     }
     if (player.x > 405.5) {
         player.x = 405.5;
@@ -70,13 +81,15 @@ Player.prototype.handleInput = function(m) {
     if (player.y < 1.5) {
         player.y = 1.5
     }
-    if (player.y <= 2) {
+    if (player.y <= 1.5) {
         var reset = prompt("Bravo! You made it!!!!! Do you want to play again?");
             if (reset === "yes") {
-            player.x = 202.5;
-            player.y = 383;
-          }
+                player.x = 202.5;
+                player.y = 400;
+            }
     }
+
+
 };
 
 //*************************************************
@@ -92,7 +105,7 @@ var bug3 = new Enemy (10, 60, 50);
 
 var allEnemies = [bug1, bug2, bug3];
 
-var player = new Player(202.5, 383, 50);
+var player = new Player(202.5, 400, 50);
 
 
 // This listens for key presses and sends the keys to your
