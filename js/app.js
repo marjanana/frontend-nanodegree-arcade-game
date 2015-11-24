@@ -27,7 +27,6 @@ Enemy.prototype.update = function(dt) {
 
 };
 
-// Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
@@ -45,20 +44,22 @@ var Player = function(x, y, speed) {
     this.sprite = 'images/char-boy.png';
 };
 
-Player.prototype.update = function(dt) {
 
-    if (player.y + 131 >= bug1.y + 90 &&
-        player.x + 25 <= bug1.x + 88 &&
-        player.y + 73 <= bug1.y + 135 &&
-        player.x + 76 >= bug1.x + 11) {
-        var reset = prompt('BOOM!!!!!!! BUGS RULE! You lost. Want to play again?');
+Player.prototype.update = function(dt) {
+for (var i = 0; len = allEnemies.length, i < len; i++) {
+    if (player.y + 131 >= allEnemies[i].y + 90 &&
+        player.x + 25 <= allEnemies[i].x + 88 &&
+        player.y + 73 <= allEnemies[i].y + 135 &&
+        player.x + 76 >= allEnemies[i].x + 11) {
+        var reset = prompt('BOOM!!!!!!! OUCH!!!! You lost :( Want to play again?');
             if (reset === "yes") {
                 player.x = 202.5;
                 player.y = 383;
             }
         }
-
+}
 };
+
 
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -90,7 +91,7 @@ Player.prototype.handleInput = function(m) {
         player.y = 1.5
     }
     if (player.y <= 1.5) {
-        var reset = prompt("Bravo! You made it!!!!! Do you want to play again?");
+        var reset = prompt("YOU MADE IT!!!!! Want to play again?");
             if (reset === "yes") {
                 player.x = 202.5;
                 player.y = 400;
