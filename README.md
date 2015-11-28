@@ -13,8 +13,8 @@ HTML5 compatiblie browser required.
 <h2>Instructions</h2>
 
 1. Go to <strong>https://github.com/marjanana/frontend-nanodegree-arcade-game</strong>
-2. Open <strong>index.html</strong> in your browser.
-3. Use four arrow keys to move a player.
+2. Open `index.html` in your browser.
+3. Use four arrow keys to move the player.
 
 <h4>Goal</h4>
 
