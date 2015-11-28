@@ -1,4 +1,5 @@
 <h3>Frontend-Nanodegree-Arcade-Game</h3>
+<h4>by Ana</h4>
 
 <h2>Game Overview</h2>
 

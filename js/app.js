@@ -7,12 +7,12 @@ var Enemy = function (x, y) {   // Enemy class
 };
 
 function randomBugs() {
-    return Math.floor(Math.random() * (420 - 150)) + 150;
+    return Math.floor(Math.random() * (420 - 150)) + 150;  //Enemies appear randomly
 }
 
 Enemy.prototype.update = function(dt) {
-    this.x += this.speed * dt;   // Multiply any movement by the dt parameter
-    if (this.x >= 500) {  // Enemies reappear
+    this.x += this.speed * dt;    // Multiply any movement by the dt parameter
+    if (this.x >= 500) {   // Enemies reappear
         this.x = 0;
     }
 };
@@ -37,7 +37,7 @@ Player.prototype.update = function(dt) {
             var reset = prompt('BOOM!!!!!!! OUCH!!!! You lost :( Want to play again?');   //Reset after collision
             if (reset === "yes") {
                 this.x = 202.5;
-                this.y = 383;
+                this.y = 400;
             }
         }
     }
@@ -79,8 +79,6 @@ Player.prototype.handleInput = function(m) {
                 this.y = 400;
             }
     }
-
-
 };
 
 var bug1 = new Enemy (10, 230);
