@@ -10,8 +10,8 @@ function randomBugs() {
     return Math.floor(Math.random() * (420 - 150)) + 150;
 }
 
-Enemy.prototype.update = function(dt) {   // Multiply any movement by the dt parameter
-    this.x += this.speed * dt;
+Enemy.prototype.update = function(dt) {
+    this.x += this.speed * dt;   // Multiply any movement by the dt parameter
     if (this.x >= 500) {  // Enemies reappear
         this.x = 0;
     }
@@ -30,14 +30,14 @@ var Player = function(x, y, speed) {    // Player class
 
 Player.prototype.update = function(dt) {
     for (var i = 0; len = allEnemies.length, i < len; i++) {    // Collision
-        if (player.y + 131 >= allEnemies[i].y + 90 &&
-            player.x + 25 <= allEnemies[i].x + 88 &&
-            player.y + 73 <= allEnemies[i].y + 135 &&
-            player.x + 76 >= allEnemies[i].x + 11) {
+        if (this.y + 131 >= allEnemies[i].y + 90 &&
+            this.x + 25 <= allEnemies[i].x + 88 &&
+            this.y + 73 <= allEnemies[i].y + 135 &&
+            this.x + 76 >= allEnemies[i].x + 11) {
             var reset = prompt('BOOM!!!!!!! OUCH!!!! You lost :( Want to play again?');   //Reset after collision
             if (reset === "yes") {
-                player.x = 202.5;
-                player.y = 383;
+                this.x = 202.5;
+                this.y = 383;
             }
         }
     }
@@ -49,34 +49,34 @@ Player.prototype.render = function() {
 
 Player.prototype.handleInput = function(m) {
     if (m === 'left') {         //Player movement
-      this.x = this.x - 100;
+      this.x = this.x - 101;
     }
     if (m === 'right') {
-      this.x = this.x + 100;
+      this.x = this.x + 101;
     }
     if (m === 'up') {
-      this.y = this.y - 52;
+      this.y = this.y - 83;
     }
     if (m === 'down') {
-      this.y = this.y + 52;
+      this.y = this.y + 83;
     }
-    if (player.x > 405.5) {   // Player stay on canvas
-        player.x = 405.5;
+    if (this.x > 405.5) {   // Player stay on canvas
+        this.x = 405.5;
     }
-    if (player.x < 1.5) {
-        player.x = 1.5;
+    if (this.x < 1.5) {
+        this.x = 1.5;
     }
-    if (player.y > 383) {
-        player.y = 383;
+    if (this.y > 383) {
+        this.y = 383;
     }
-    if (player.y < 1.5) {
-        player.y = 1.5
+    if (this.y < 1.5) {
+        this.y = 1.5
     }
-    if (player.y <= 1.5) {
+    if (this.y <= 1.5) {
         var reset = prompt("YOU MADE IT!!!!! Want to play again?");     // Reset after reaching the goal
             if (reset === "yes") {
-                player.x = 202.5;
-                player.y = 400;
+                this.x = 202.5;
+                this.y = 400;
             }
     }
 
